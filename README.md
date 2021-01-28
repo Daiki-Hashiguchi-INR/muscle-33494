@@ -30,11 +30,11 @@ URL：
 
 | Column              | Type       | Options     |
 | ------------------- | ---------- | ----------- |
-| name                | string     | null: false |
+| title               | string     | null: false |
 | explain             | text       | null: false |
 | part_id             | integer    | null: false |
 | difficult_id        | integer    | null: false |
-| time                | datetime   | null: false |
+| daytime             | datetime   | null: false |
 | user                | references | foreign_key: true |
 
 ### Association

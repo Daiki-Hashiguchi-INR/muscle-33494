@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
+  has_many :muscles
+
   validates :nickname, presence: true
   validates :profile , presence: true
   validates :goal    , presence: true
