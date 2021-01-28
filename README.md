@@ -16,7 +16,7 @@ URL：
 | Column             | Type   | Options      |
 | ------------------ | ------ | -----------  |
 | nickname           | string | null: false  |
-| email              | string | null: false, unique: true, index: true |
+| email              | string | null: false  |
 | encrypted_password | string | null: false  |
 | profile            | string | null: false  |
 | goal               | string | null: false  |
