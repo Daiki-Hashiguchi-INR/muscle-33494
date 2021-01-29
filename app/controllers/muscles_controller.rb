@@ -20,6 +20,8 @@ class MusclesController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @muscle.comments.includes(:user)
   end
 
   def edit
