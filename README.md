@@ -25,6 +25,7 @@ URL：
 
 - has_many :muscles
 - has_many :messages
+- has_many :favorites
 
 ## musclesテーブル
 
@@ -41,6 +42,7 @@ URL：
 
 - belongs_to :user
 - has_many :messages
+- has_many :favorites
 
 - has_one_attached :image
 
@@ -52,6 +54,18 @@ URL：
 | Column   | Type       | Options           |
 | -------- | ---------- | ----------------- |
 | text     | text       | null: false |
+| user     | references | foreign_key: true |
+| muscle   | references | foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :muscle
+
+## favoritesテーブル
+
+| Column   | Type       | Options           |
+| -------- | ---------- | ----------------- |
 | user     | references | foreign_key: true |
 | muscle   | references | foreign_key: true |
 
