@@ -62,6 +62,8 @@ gem 'active_hash'
 
 gem 'pry-rails'
 
+gem 'simple_calendar', '~> 2.0'
+
 group :development do
   gem 'rubocop', require: false
 end

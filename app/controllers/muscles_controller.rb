@@ -1,4 +1,7 @@
 class MusclesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :set_muscle, only: [:show, :edit, :update]
+
   def index
     @muscles = Muscle.all
   end
@@ -16,10 +19,35 @@ class MusclesController < ApplicationController
     end
   end
 
-  
+  def show
+  end
+
+  def edit
+    unless @muscle.user.id == current_user.id
+      redirect_to action: :index
+    end
+  end
+
+  def update
+    if @muscle.update(muscle_params)
+      redirect_to muscle_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    muscle =Muscle.find(params[:id])
+    muscle.destroy
+    redirect_to root_path
+  end
 
   private
   def muscle_params
     params.require(:muscle).permit(:image, :title, :explain, :part_id, :difficult_id, :daytime).merge(user_id: current_user.id)
+  end
+
+  def set_muscle
+    @muscle = Muscle.find(params[:id])
   end
 end

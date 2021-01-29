@@ -3,9 +3,6 @@
   <div class="card__body">
     <%= link_to muscle.title, muscle_path(muscle.id), method: :get , class: :card__title%>
     <p class="card__summary">
-      <%= muscle.explain %>
-    </p>
-    <p class="card__summary">
       <%= "部位・・・#{muscle.part.name}" %>
     </p>
     <p class="card__summary">

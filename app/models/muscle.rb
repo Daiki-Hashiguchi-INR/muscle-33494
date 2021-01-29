@@ -18,4 +18,8 @@ class Muscle < ApplicationRecord
     validates :part_id
     validates :difficult_id
   end
+
+  def start_time
+    self.daytime
+  end
 end
