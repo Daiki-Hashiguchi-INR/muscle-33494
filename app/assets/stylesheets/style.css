@@ -119,10 +119,30 @@ a {
 }
 
 /* メイン */
+.training-title{
+  text-align:center;
+}
+
+.calender{
+  background-color: rgb(255, 244, 244);
+}
+
+.year-month {
+  color: red;
+}
+
+.cal-head {
+  text-align:center;
+}
 
 .greeting{
   margin-bottom: 20px;
 }
+
+.goal{
+  font-size: 40px;
+}
+
 .greeting__link{
   text-decoration: underline;
 }

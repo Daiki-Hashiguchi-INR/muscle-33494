@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :muscles
   has_many :comments
   has_many :favorites
+  has_many :favorite_muscles, through: :favorites, source: :muscle
 
   validates :nickname, presence: true
   validates :profile , presence: true

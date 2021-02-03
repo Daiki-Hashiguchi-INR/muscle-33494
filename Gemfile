@@ -64,6 +64,8 @@ gem 'pry-rails'
 
 gem 'simple_calendar', '~> 2.0'
 
+gem 'jquery-rails'
+
 group :development do
   gem 'rubocop', require: false
 end

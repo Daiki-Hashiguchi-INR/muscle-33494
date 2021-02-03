@@ -26,6 +26,7 @@ URL：
 - has_many :muscles
 - has_many :messages
 - has_many :favorites
+- has_many :favorite_muscles, though: :favorites, source: :muscle
 
 ## musclesテーブル
 

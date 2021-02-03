@@ -26,6 +26,10 @@
       <div class="user__card">
         <%= render partial: "muscles/muscle", collection: @muscles %>
       </div>
+      <% @favorite_muscles.each do |muscle| %>
+        <hr>
+        <p><span>お気に入りトレーニング：</span><%=link_to muscle.title , muscle_path(muscle.id) %></p>
+      <% end %>
     </div>
   </div>
 </div>

@@ -1,41 +1,15 @@
-<h1>トレーニングの予定</h1>
+<h1 class="training-title">トレーニングの予定</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>タイトル</th>
-      <th>時間</th>
-      <th>ユーザー</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-  <% if user_signed_in? %>
-    <% @muscles.each do |muscle| %>
-      <tr>
-        <td><%= muscle.title %></td>
-        <td><%= muscle.start_time.strftime("%Y-%m-%d %H:%M") %></td>
-        <td><%= muscle.user.nickname %></td>
-      </tr>
+<div class="calender">
+  <%= month_calendar events: @muscles do |date, muscles| %>
+    <%= date.day %>
+    <% muscles.each do |muscle| %>
+      <div>
+        <%= link_to muscle.title, muscle %>
+      </div>
     <% end %>
   <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to '日記をかく', new_muscle_path %>
-
-<%= month_calendar events: @muscles do |date, muscles| %>
-  <%= date.day %>
-
-  <% muscles.each do |muscle| %>
-    <div>
-      <%= link_to muscle.title, muscle %>
-    </div>
-  <% end %>
-<% end %>
+</div>
 
 <main class="main">
   <div class="inner">
@@ -45,13 +19,12 @@
         <%= link_to current_user.nickname, "/users/#{current_user.id}", class: :greeting__link%>
         <%= "さん" %>
       </div>
-      <div class="greeting">
+      <div class="greeting goal">
         <%= "あなたの目標は・・・" %>
         <%= link_to current_user.goal, "/users/#{current_user.id}", class: :greeting__link%>
       </div>
     <% end %>
     <div class="card__wrapper">
-      <%# 投稿機能実装後、部分テンプレートでプロトタイプ投稿一覧を表示する %>
       <%= render partial:"muscle", collection: @muscles %>
     </div>
     <%# もし何も投稿がなかったら表示させる%>
