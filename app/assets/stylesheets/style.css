@@ -37,9 +37,7 @@ a {
 /* ヘッダー */
 
 .header {
-  background-color: #f1f8fe;
-  margin-bottom: 48px;
-  padding: 20px 0;
+  background-color: seashell;
 
 }
 .inner {
@@ -51,8 +49,18 @@ a {
   display: flex;
   justify-content: space-between;
 }
+
+.nav__left{
+  margin : 0 auto
+}
+
+.nav__right{
+  padding: 30px 0 30px 0;
+  display: flex;
+}
+
 .logo {
-  width: 200px;
+  width: 300px;
 }
 .nav__btn{
   display: inline-block;
@@ -119,11 +127,39 @@ a {
 }
 
 /* メイン */
+.main{
+  background-image: url('style_gim.png');
+}
+
+.inner-main{
+  background:rgba(233, 235, 150, 0.6)
+}
+
+.alert{
+  margin-bottom: 0%;
+}
+
+.boy{
+  width :300px;
+  height: 300px;
+  position: absolute;
+  top: 500px;
+  left: 10px;
+}
+
+.girl{
+  width :300px;
+  height: 300px;
+  position: absolute;
+  top: 500px;
+  right: 10px;
+}
+
 .training-title{
   text-align:center;
 }
 
-.calender{
+.calendar{
   background-color: rgb(255, 244, 244);
 }
 
@@ -155,10 +191,10 @@ a {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  min-height: calc(100vh - 161px);
+  min-height: calc(100vh - 200px);
 }
 .card {
-  width: calc((100% - 50px) / 3);
+  width: calc((100% - 100px) / 4);
   margin-bottom: 40px;
 }
 .card__img {
@@ -237,7 +273,7 @@ a {
 .prototype__comments{
   background-color: #f6f6f6;
   padding: 20px;
-  margin: 28px 0 40px 0;
+  margin: 28px 0 0 0;
 }
 
 .comments_lists{
@@ -262,7 +298,7 @@ a {
 .table{
   border-collapse: collapse;
   margin-bottom: 32px;
-  width: 50%;
+  width: 80%;
 }
 .table__col1{
   text-align: left;
@@ -286,6 +322,12 @@ a {
   justify-content: space-between;
   align-items: center;
 }
+
+/* 検索結果ページ */
+.search-title{
+  text-align: center
+}
+
 /* フッター */
 
 .footer {

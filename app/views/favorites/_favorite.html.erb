@@ -1,10 +1,10 @@
   <% if user_signed_in? %>
     <% if muscle.favorited_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
-        <p><span></span><%=link_to image_tag("good.png", size: '30x30' ,class: :good), muscle_favorites_path(muscle.id), method: :delete %></p>
-        <p><span>いいね数: </span><%= muscle.favorites.count %>
+        <p><%=link_to image_tag("good.png", size: '30x30' ,class: :good), muscle_favorites_path(muscle.id), method: :delete %></p>
+        <span>いいね数: </span><%= muscle.favorites.count %>
     <% else %>
-        <p><span></span><%=link_to image_tag("nogood.png", size: '30x30' ,class: :good), muscle_favorites_path(muscle.id), method: :post %></p>
-        <p><span>いいね数: </span><%= muscle.favorites.count %>
+        <p><%=link_to image_tag("nogood.png", size: '30x30' ,class: :good), muscle_favorites_path(muscle.id), method: :post %></p>
+        <span>いいね数: </span><%= muscle.favorites.count %>
     <% end %>
   <% else %>
     <p><span>いいね数: </span><%= muscle.favorites.count %></p>

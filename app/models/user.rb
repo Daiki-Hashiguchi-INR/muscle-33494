@@ -4,9 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  has_many :muscles
+  has_many :muscles, dependent: :destroy
   has_many :comments
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :favorite_muscles, through: :favorites, source: :muscle
 
   validates :nickname, presence: true

@@ -1,0 +1,15 @@
+<h1 class="search-title">
+  検索結果
+</h1>
+
+<% if @results.length !=0 %>
+  <div class="inner">
+    <div class="card__wrapper">
+      <%= render partial:"muscle", collection: @results %>
+    </div>
+  </div>
+<% else %>
+  該当する商品はありません
+<% end %>
+<br>
+<%= link_to 'トップページへ戻る', root_path ,class: :top_page %>

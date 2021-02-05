@@ -1,43 +1,49 @@
 <%= javascript_pack_tag 'test' %>
 
-<p>test</p>
-
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+  <strong>やあ、みんな!</strong> 今日も1日頑張ろう！！
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
 
-<h1 class="training-title">トレーニングの予定</h1>
-
-<div class="calender">
-  <%= month_calendar events: @muscles do |date, muscles| %>
-    <%= date.day %>
-    <% muscles.each do |muscle| %>
-      <div>
-        <%= link_to muscle.title, muscle %>
-      </div>
-    <% end %>
-  <% end %>
-</div>
 
 <main class="main">
+  <%= image_tag 'boy.png' ,class: "boy" %>
+  <%= image_tag 'girl.png' ,class: "girl" %>
   <div class="inner">
-    <% if user_signed_in? %>
-      <div class="greeting">
-        <%= "こんにちは、" %>
-        <%= link_to current_user.nickname, "/users/#{current_user.id}", class: :greeting__link%>
-        <%= "さん" %>
+    <div class="inner-main">
+      <div class="new-muscle">
+        <%= "初めての人は" %>
+        <%= link_to "こちらをクリック", muscles_startmuscle_path %>
       </div>
-      <div class="greeting goal">
-        <%= "あなたの目標は・・・" %>
-        <%= link_to current_user.goal, "/users/#{current_user.id}", class: :greeting__link%>
+      <% if user_signed_in? %>
+        <div class="greeting goal">
+          <%= "あなたの目標は・・・" %>
+          <%= link_to current_user.goal, "/users/#{current_user.id}", class: :greeting__link%>
+        </div>
+      <% end %>
+      <%# もし何も投稿がなかったら表示させる%>
+
+      <%# 検索欄 %>
+      <%= search_form_for @p, url: muscles_searchmuscle_path do |f| %>
+
+        <p>カテゴリー検索</p>
+        <%= f.label '部位'%>
+        <%= f.collection_select :part_id_eq,Part.all,:id,:name %>
+        <%= f.label '難易度'%>
+        <%= f.collection_select :difficult_id_eq,Difficult.all,:id,:name %>
+        <%= f.submit '検索' %>
+      <% end %>
+
+      <div class="card__wrapper">
+        <%= render partial:"muscle", collection: @muscles %>
       </div>
-    <% end %>
-    <div class="card__wrapper">
-      <%= render partial:"muscle", collection: @muscles %>
     </div>
-    <%# もし何も投稿がなかったら表示させる%>
   </div>
 </main>
+
+<%= link_to(new_muscle_path, class: 'purchase-btn') do %>
+  <span class='purchase-btn-text'>投稿する</span>
+  <%= image_tag 'dumbbell.png' , size: '200x70' ,class: "purchase-btn-icon" %>
+<% end %>

@@ -67,6 +67,8 @@ gem 'simple_calendar', '~> 2.0'
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 
+gem 'ransack'
+
 group :development do
   gem 'rubocop', require: false
 end

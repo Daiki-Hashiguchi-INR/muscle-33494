@@ -20,12 +20,29 @@
           </tr>
         </tbody>
       </table>
+
+    <h1 class="training-title">トレーニングの予定</h1>
+
+    <div class="calendar">
+      <%= week_calendar events: @muscles do |date, muscles| %>
+        <%= date.day %>
+        <% muscles.each do |muscle| %>
+          <div>
+            <%= link_to muscle.title, muscle %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+
       <h2 class="page-heading">
         <%= "#{@user.nickname}さんのトレーニング"%>
       </h2>
+
       <div class="user__card">
         <%= render partial: "muscles/muscle", collection: @muscles %>
       </div>
+
       <% @favorite_muscles.each do |muscle| %>
         <hr>
         <p><span>お気に入りトレーニング：</span><%=link_to muscle.title , muscle_path(muscle.id) %></p>

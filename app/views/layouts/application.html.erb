@@ -19,8 +19,12 @@
           </div>
           <% if user_signed_in? %>
             <div class="nav__right">
+              <div class="greeting">
+                <%= "こんにちは、" %>
+                <%= link_to current_user.nickname, "/users/#{current_user.id}", class: :greeting__link%>
+                <%= "さん" %>
+              </div>
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
-              <%= link_to "New Proto", new_muscle_path, class: :nav__btn %>
             </div>
           <% else %>
             <div class="nav__right">
