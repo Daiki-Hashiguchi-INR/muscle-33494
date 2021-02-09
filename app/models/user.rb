@@ -12,4 +12,6 @@ class User < ApplicationRecord
   validates :nickname, presence: true
   validates :profile , presence: true
   validates :goal    , presence: true
+
+  has_one_attached :image
 end
