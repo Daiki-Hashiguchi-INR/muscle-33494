@@ -69,6 +69,8 @@ gem 'jquery-rails'
 
 gem 'ransack'
 
+gem "aws-sdk-s3", require: false
+
 group :development do
   gem 'rubocop', require: false
 end
