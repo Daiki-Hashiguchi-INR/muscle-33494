@@ -16,7 +16,7 @@ URL：
 | Column             | Type   | Options      |
 | ------------------ | ------ | -----------  |
 | nickname           | string | null: false  |
-| email              | string | null: false, unique: true, index: true |
+| email              | string | null: false  |
 | encrypted_password | string | null: false  |
 | profile            | string | null: false  |
 | goal               | string | null: false  |
@@ -25,22 +25,25 @@ URL：
 
 - has_many :muscles
 - has_many :messages
+- has_many :favorites
+- has_many :favorite_muscles, though: :favorites, source: :muscle
 
 ## musclesテーブル
 
 | Column              | Type       | Options     |
 | ------------------- | ---------- | ----------- |
-| name                | string     | null: false |
+| title               | string     | null: false |
 | explain             | text       | null: false |
 | part_id             | integer    | null: false |
 | difficult_id        | integer    | null: false |
-| time                | datetime   | null: false |
+| daytime             | datetime   | null: false |
 | user                | references | foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - has_many :messages
+- has_many :favorites
 
 - has_one_attached :image
 
@@ -52,6 +55,18 @@ URL：
 | Column   | Type       | Options           |
 | -------- | ---------- | ----------------- |
 | text     | text       | null: false |
+| user     | references | foreign_key: true |
+| muscle   | references | foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :muscle
+
+## favoritesテーブル
+
+| Column   | Type       | Options           |
+| -------- | ---------- | ----------------- |
 | user     | references | foreign_key: true |
 | muscle   | references | foreign_key: true |
 

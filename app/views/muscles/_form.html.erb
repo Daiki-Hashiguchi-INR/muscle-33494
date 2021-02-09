@@ -1,0 +1,38 @@
+<%= form_with model:muscle, local: true do |f|%>
+
+  <%= render partial: 'shared/error_messages', locals: { model: f.object } %>
+
+  <div class="field">
+    <%= f.label :image, "トレーニング画像" %><br />
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title, "トレーニング名" %><br />
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :explain, "トレーニング内容" %><br />
+    <%= f.text_area :explain, class: :form__text %>
+  </div>
+
+  <div class="field">
+    <%= f.label :part_id, "部位" %><br />
+    <%= f.collection_select(:part_id, Part.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :difficult_id, "難易度" %><br />
+    <%= f.collection_select(:difficult_id, Difficult.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :daytime, "日にち" %><br />
+    <%= f.datetime_select :daytime %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "保存する", class: :form__btn  %>
+  </div>
+<% end %>

@@ -1,0 +1,15 @@
+<h1 class="search-title">
+  検索いたしました！
+</h1>
+
+<% if @results.length !=0 %>
+  <div class="inner">
+    <div class="card__wrapper">
+      <%= render partial:"muscle", collection: @results %>
+    </div>
+  </div>
+<% else %>
+  申し訳ございません！該当するトレーニングが見つかりませんでした！；ー；
+<% end %>
+<br>
+<%= link_to 'トップページへ戻る', root_path ,class: :top_page %>
