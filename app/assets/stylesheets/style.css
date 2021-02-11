@@ -41,7 +41,7 @@ a {
 
 }
 .inner {
-  width: 1024px;
+  width: 80%;
   margin: 0 auto;
 }
 .nav {
@@ -55,7 +55,7 @@ a {
 }
 
 .nav__right{
-  padding: 15px 0 0 0;
+  margin: 40px 0px;
   display: flex;
 }
 
@@ -65,11 +65,12 @@ a {
 .nav__btn{
   display: inline-block;
   padding: 0.4em 1.6em;
-  font-size: 0.8em;
+  font-size: 1em;
   color: #87CEFA;
   text-decoration: none;
   user-select: none;
-  border-radius: 3px;
+  border: solid 3px rgba(68, 226, 226, 0.6);
+  border-radius: 10px;
   transition: 0.4s ease;
 }
 .nav__btn:hover{
@@ -78,11 +79,13 @@ a {
 
 .nav__logout{
   display: inline-block;
-  margin: 20px 20px;
-  font-size: 0.8em;
+  padding: 0.4em 1.6em;
+  font-size: 1em;
   color: #87CEFA;
   text-decoration: none;
   user-select: none;
+  border: solid 3px rgba(68, 226, 226, 0.6);
+  border-radius: 10px;
 }
 .nav__logout:hover{
   opacity: 0.5;
@@ -126,11 +129,11 @@ a {
 
 /* メイン */
 .main{
-  background-image: url('style_gim.png');
+  background:rgba(233, 235, 150, 0.6);
 }
 
 .inner-main{
-  background:rgba(233, 235, 150, 0.6)
+  background-color: rgb(213, 255, 255, 0.6);
 }
 
 .alert{
@@ -139,10 +142,10 @@ a {
 
 /* 男女の画像 */
 .boy{
-  width :33vw;
-  height: 35vh;
+  width :330px;
+  height: 350px;
   position: absolute;
-  top: 400px;
+  top: 500px;
   right: 30px;
 }
 
@@ -197,11 +200,12 @@ a {
 }
 
 .greeting{
-  margin: 20px 20px;
-  font-size: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
 }
 
 .goal{
+  margin-top: 70px;
   font-size: 30px;
   color: #6cb4e4;
   text-align: center;
@@ -418,6 +422,10 @@ a {
 }
 
 /* BMI検索機能 */
+.bmi{
+  margin: 40px 0px;
+}
+
 .col-md-4 {
   flex: 50%;
   max-width: 50%;

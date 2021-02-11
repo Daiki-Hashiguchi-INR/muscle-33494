@@ -47,77 +47,77 @@
 
 
 <main class="main">
-  <%# <%= image_tag 'boy.png' ,class: "boy" %>
-  <%# <%= image_tag 'girl.png' ,class: "girl" %>
   <div class="inner">
-    <%= image_tag 'boy.png' ,class: "boy" %>
+    
     <div class="inner-main">
       <div class="new-muscle">
         <%= "初めての人は" %>
         <%= link_to "こちらをクリック", muscles_startmuscle_path, class: :click_link %>
       </div>
+      <div class="bmi">
+        <%= image_tag 'boy.png' ,class: "boy" %>
+        <h3 class="bmi-title">📋 BMIを調べてみよう！</h3>
+        <h6>BMIとは体重と身長から算出される肥満度のことです。</h6>
 
-      <h3 class="bmi-title">BMIを調べてみよう！</h3>
-      <h6>BMIとは体重と身長から算出される肥満度のことです。</h6>
-
-      <table border="1">
-        <tr>
-          <th>BMI値</th>
-          <th>判定</th>
-        </tr>
-        <tr>
-          <td>18.5未満</td>
-          <td>痩せ型</td>
-        </tr>
-        <tr>
-          <td>18.5~25未満</td>
-          <td>普通体型</td>
-        </tr>
-        <tr>
-          <td>25~30未満</td>
-          <td>肥満(1度)</td>
-        </tr>
-        <tr>
-          <td>30~35未満</td>
-          <td>肥満(2度)</td>
-        </tr>
-        <tr>
-          <td>35~40未満</td>
-          <td>肥満(3度)</td>
-        </tr>
-        <tr>
-          <td>40以上</td>
-          <td>肥満(4度)</td>
-        </tr>
-      </table>
-      <h6>※データは保存されません。</h6>
-      <h6>　安心してご利用ください。</h6>
-      <div class="container">
-        <div class="row">
-          <section class="col-sm-6 col-md-4 pt-4">
-            <div class="form-group">
-              <label for="height">身長 (cm)</label>
-              <input id="height-input" type="text" class="form-control" value="">
-            </div>
-            <div class="form-group">
-              <label for="weight">体重 (kg)</label>
-              <input id="weight-input" type="text" class="form-control" value="">
-            </div>
-              <input id="button-submit" type="submit" class="btn btn-primary btn-large" value="計測開始">
-          </section>
-          <section class="col-sm-6 col-md-4 pt-4">
-            <div class="card">
-              <div class="card-header">
-                あなたのBMI
+        <table border="1">
+          <tr>
+            <th>BMI値</th>
+            <th>判定</th>
+          </tr>
+          <tr>
+            <td>18.5未満</td>
+            <td>痩せ型</td>
+          </tr>
+          <tr>
+            <td>18.5~25未満</td>
+            <td>普通体型</td>
+          </tr>
+          <tr>
+            <td>25~30未満</td>
+            <td>肥満(1度)</td>
+          </tr>
+          <tr>
+            <td>30~35未満</td>
+            <td>肥満(2度)</td>
+          </tr>
+          <tr>
+            <td>35~40未満</td>
+            <td>肥満(3度)</td>
+          </tr>
+          <tr>
+            <td>40以上</td>
+            <td>肥満(4度)</td>
+          </tr>
+        </table>
+        <h6>※データは保存されません。</h6>
+        <h6>安心してご利用ください。</h6>
+        <div class="container">
+          <div class="row">
+            <section class="col-sm-6 col-md-4 pt-4">
+              <div class="form-group">
+                <label for="height">身長 (cm)</label>
+                <input id="height-input" type="text" class="form-control" placeholder="例) 165">
               </div>
-              <div class="card-body">
-                <div id="bmi-output" class="display-4"></div>
+              <div class="form-group">
+                <label for="weight">体重 (kg)</label>
+                <input id="weight-input" type="text" class="form-control" placeholder="例) 60">
               </div>
-            </div>
-          </section>
+                <input id="button-submit" type="submit" class="btn btn-primary btn-large" value="計測開始">
+            </section>
+            <section class="col-sm-6 col-md-4 pt-4">
+              <div class="card">
+                <div class="card-header">
+                  あなたのBMI
+                </div>
+                <div class="card-body">
+                  <div id="bmi-output" class="display-4"></div>
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
       </div>
-  
+
       <% if user_signed_in? %>
         <div class="greeting goal">
           <%= "あなたの目標は・・・" %>
@@ -129,7 +129,7 @@
       <%# 検索欄 %>
       <%= search_form_for @p, url: muscles_searchmuscle_path do |f| %>
 
-        <p class="category-title">カテゴリー検索</p>
+        <p class="category-title">🔍 カテゴリー検索</p>
         <%= f.label '部位'%>
         <%= f.collection_select :part_id_eq,Part.all,:id,:name %>
         <%= f.label '難易度'%>
