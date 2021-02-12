@@ -1,15 +1,19 @@
-<h1 class="search-title">
-  検索いたしました！
-</h1>
-
-<% if @results.length !=0 %>
+<main class="main">
   <div class="inner">
-    <div class="card__wrapper">
-      <%= render partial:"muscle", collection: @results %>
+    <div class="inner-main">
+      <h1 class="search-title">💪検索結果💪</h1>
+
+      <% if @results.length !=0 %>
+        <div class="inner">
+          <div class="card__wrapper">
+            <%= render partial:"muscle", collection: @results %>
+          </div>
+        </div>
+      <% else %>
+        <h4>申し訳ございません！該当するトレーニングが見つかりませんでした！；ー；</h4>
+      <% end %>
+      <br>
+      <%= link_to 'トップページへ戻る', root_path ,class: :top_page %>
     </div>
   </div>
-<% else %>
-  申し訳ございません！該当するトレーニングが見つかりませんでした！；ー；
-<% end %>
-<br>
-<%= link_to 'トップページへ戻る', root_path ,class: :top_page %>
+</div>

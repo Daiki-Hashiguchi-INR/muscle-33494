@@ -1,55 +1,60 @@
 <div class="main">
   <div class="inner">
-    <div class="user__wrapper">
-      <h2 class="page-heading">
-        <%= "#{@user.nickname}さんの詳細情報"%>
-      </h2>
-      <% if @user.avatar.attached? %>
-        <%= image_tag @user.avatar %>
-      <% end %>
-      <table class="table">
-        <tbody>
-          <tr>
-            <th class="table__col1">名前</th>
-            <td class="table__col2"><%= @user.nickname %></td>
-          </tr>
-          <tr>
-            <th class="table__col1">プロフィール</th>
-            <td class="table__col2"><%= @user.profile %></td>
-          </tr>
-          <tr>
-            <th class="table__col1">目標</th>
-            <td class="table__col2"><%= @user.goal %></td>
-          </tr>
-        </tbody>
-      </table>
-      <%= link_to "ユーザー情報を編集", edit_user_registration_path%>
-
-      <h1 class="training-title">トレーニングの予定</h1>
-      <div class="calendar">
-        <%= week_calendar events: @muscles do |date, muscles| %>
-          <%= date.day %>
-          <% muscles.each do |muscle| %>
-            <div>
-              <%= link_to muscle.title, muscle %>
-            </div>
-          <% end %>
+    <div class="inner-main">
+      <div class="user__wrapper">
+        <h2 class="page-heading">
+          <%= "#{@user.nickname}さんの詳細情報"%>
+        </h2>
+        <% if @user.avatar.attached? %>
+          <%= image_tag @user.avatar %>
         <% end %>
+        <table class="table">
+          <tbody>
+            <tr>
+              <th class="table__col1">名前</th>
+              <td class="table__col2"><%= @user.nickname %></td>
+            </tr>
+            <tr>
+              <th class="table__col1">プロフィール</th>
+              <td class="table__col2"><%= @user.profile %></td>
+            </tr>
+            <tr>
+              <th class="table__col1">目標</th>
+              <td class="table__col2"><%= @user.goal %></td>
+            </tr>
+          </tbody>
+        </table>
+        <%= link_to "ユーザー情報を編集", edit_user_registration_path%>
+
+        <h1 class="training-title">MYカレンダー</h1>
+        <div class="calendar">
+          <%= week_calendar events: @muscles do |date, muscles| %>
+            <%= date.day %>
+            <% muscles.each do |muscle| %>
+              <div>
+                <%= link_to muscle.title, muscle %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+
+
+        <h2 class="page-heading">
+          <%= "#{@user.nickname}さんのトレーニング"%>
+        </h2>
+
+        <div class="user__card">
+          <%= render partial: "muscles/muscle", collection: @muscles %>
+        </div>
+
+        <div class="favorite-space">
+          <h2>いいねしたトレーニング</h2>
+          <% @favorite_muscles.each do |muscle| %>
+            <hr>
+            <%=link_to muscle.title , muscle_path(muscle.id) %>
+          <% end %>
+        </div>
       </div>
-
-
-      <h2 class="page-heading">
-        <%= "#{@user.nickname}さんのトレーニング"%>
-      </h2>
-
-      <div class="user__card">
-        <%= render partial: "muscles/muscle", collection: @muscles %>
-      </div>
-
-      <% @favorite_muscles.each do |muscle| %>
-        <hr>
-        <p><span>お気に入りトレーニング：</span><%=link_to muscle.title , muscle_path(muscle.id) %></p>
-      <% end %>
     </div>
   </div>
 </div>

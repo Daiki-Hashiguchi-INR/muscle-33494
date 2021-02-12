@@ -48,7 +48,6 @@
 
 <main class="main">
   <div class="inner">
-    
     <div class="inner-main">
       <div class="new-muscle">
         <%= "初めての人は" %>
@@ -128,13 +127,14 @@
 
       <%# 検索欄 %>
       <%= search_form_for @p, url: muscles_searchmuscle_path do |f| %>
-
         <p class="category-title">🔍 カテゴリー検索</p>
-        <%= f.label '部位'%>
-        <%= f.collection_select :part_id_eq,Part.all,:id,:name %>
-        <%= f.label '難易度'%>
-        <%= f.collection_select :difficult_id_eq,Difficult.all,:id,:name %>
-        <%= f.submit '検索' %>
+        <div class="search-header">
+          <%= f.label '部位'%>
+          <%= f.collection_select :part_id_eq,Part.all,:id,:name %>
+          <%= f.label '難易度'%>
+          <%= f.collection_select :difficult_id_eq,Difficult.all,:id,:name %>
+          <%= f.submit '検索' %>
+        </div>
       <% end %>
 
       <div class="card__wrapper">
