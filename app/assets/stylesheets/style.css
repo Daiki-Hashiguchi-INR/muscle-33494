@@ -133,7 +133,7 @@ a {
 }
 
 .inner-main{
-  background-color: rgb(213, 255, 255, 0.6);
+  background-color: rgba(213, 255, 255, 0.6);
 }
 
 .alert{
@@ -335,7 +335,7 @@ a {
 
 /* 検索結果ページ */
 .search-title{
-  text-align: center
+  text-align: center;
 }
 
 /* フッター */
