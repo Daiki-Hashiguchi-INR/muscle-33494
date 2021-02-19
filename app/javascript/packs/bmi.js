@@ -1,19 +1,19 @@
-var height = document.getElementById('height-input');
-var weight = document.getElementById('weight-input');
-var button = document.getElementById('button-submit');
+let height = document.getElementById('height-input');
+let weight = document.getElementById('weight-input');
+let button = document.getElementById('button-submit');
 
-var output = document.getElementById('bmi-output'); 
+let output = document.getElementById('bmi-output'); 
 
 // 入力値からBMIを計算して指定場所に表示する関数
-var calcBmi = function () {
+let calcBmi = function () {
   // 身長の値
-  var h_value = height.value;
+  let h_value = height.value;
   // 体重の値
-  var w_value = weight.value;
+  let w_value = weight.value;
   // 身長(cm)をメートル
   h_value /= 100;
   // BMIを計算：体重 ÷ (身長 m × 身長 m)
-  var bmi = w_value / (h_value * h_value);
+  let bmi = w_value / (h_value * h_value);
   // BMIの小数点第一位以下切り捨て
   bmi = Math.floor(bmi * 10) / 10;
   // BMIを表示
