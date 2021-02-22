@@ -129,6 +129,8 @@ $ http://localhost:3000
 - has_many :favorites
 - has_many :favorite_muscles, though: :favorites, source: :muscle
 
+- has_one_attached :avatar
+
 ## musclesテーブル
 
 | Column              | Type       | Options     |
