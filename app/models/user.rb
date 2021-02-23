@@ -13,5 +13,5 @@ class User < ApplicationRecord
   validates :profile , presence: true
   validates :goal    , presence: true
 
-  has_one_attached :avatar
+  has_one_attached :avatar, dependent: :destroy
 end
