@@ -6,7 +6,7 @@
           <%= "#{@user.nickname}さんの詳細情報"%>
         </h2>
         <% if @user.avatar.attached? %>
-          <%= image_tag @user.avatar %>
+          <%= image_tag @user.avatar.variant(resize: '180x180') %>
         <% end %>
         <table class="table">
           <tbody>
