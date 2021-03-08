@@ -1,3 +1,4 @@
+<%# トップ画面にランダムで言葉を表示させる%>
 <% random_number = SecureRandom.random_number(6) %>
 <% if random_number == 0 %>
   <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -51,6 +52,7 @@
         <%= "初めての人は" %>
         <%= link_to "こちらをクリック", muscles_startmuscle_path, class: :click_link %>
       </div>
+      <%# BMIについて%>
       <div class="bmi">
         <%= image_tag 'boy.png' ,class: "boy" %>
         <h3 class="bmi-title">📋 BMIを調べてみよう！</h3>
