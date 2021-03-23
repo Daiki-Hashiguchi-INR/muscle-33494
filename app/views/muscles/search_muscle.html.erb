@@ -3,6 +3,7 @@
     <div class="inner-main">
       <h1 class="search-title">💪検索結果💪</h1>
 
+      <%# もし、検索結果が0でなければ表示させる。それ以外なら、メッセージを表示　%>
       <% if @results.length !=0 %>
         <div class="inner">
           <div class="card__wrapper">
